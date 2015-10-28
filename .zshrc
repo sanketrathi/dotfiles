@@ -84,6 +84,7 @@ export EDITOR='vim'
 # Golang configuration
 export PATH="$PATH:/usr/local/go/bin"
 export GOPATH=$HOME/WORK/gohome
+export PATH=$PATH:$GOPATH/bin
 
 ### Django Secret Key ###
 function generate_django_secret_key {
