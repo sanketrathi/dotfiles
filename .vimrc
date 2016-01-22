@@ -74,6 +74,8 @@ nnoremap ; :
 "Magically move up and down in the same wrapped line!
 "nnoremap j gj
 "nnoremap k gk
+nnoremap gl gt
+nnoremap gh gT
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 iabbrev pdb from IPython.frontend.terminal.embed import InteractiveShellEmbed
@@ -114,9 +116,6 @@ set wildmode=list:longest,full
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
-
-" Python
-autocmd FileType python :nnoremap <Leader>c I#<Esc>
 
 " Clisp
 autocmd Filetype lisp setlocal ts=2 sts=2 sw=2
@@ -180,7 +179,6 @@ function! UnMinify()
     normal ggVG=
 endfunction
 
-
 " Need to figure tab stuff some day
 "tabs
 "map <C-S-tab> :tabprevious<CR>
@@ -198,3 +196,8 @@ autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 autocmd CompleteDone * pclose
+
+" Python
+autocmd Filetype python :nnoremap <Leader>c I#<Esc>
+autocmd Filetype python highlight Excess ctermbg=red guibg=red
+autocmd Filetype python match Excess /\%119v.*/
