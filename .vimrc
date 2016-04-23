@@ -198,6 +198,6 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 autocmd CompleteDone * pclose
 
 " Python
-autocmd Filetype python :nnoremap <Leader>c I#<Esc>
+autocmd Filetype python :nnoremap <Leader>c I#<Space><Esc>
 autocmd Filetype python highlight Excess ctermbg=red guibg=red
 autocmd Filetype python match Excess /\%119v.*/

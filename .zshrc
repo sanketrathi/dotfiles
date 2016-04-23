@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="kennethreitz"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -48,7 +48,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting python pip virtualenvwrapper)
+plugins=(git zsh-syntax-highlighting python pip virtualenvwrapper cp)
 source $ZSH/oh-my-zsh.sh
 
 export WORKON_HOME=$HOME/.virtualenvs
@@ -100,3 +100,11 @@ wait
 cd "$@"
 }
 export PATH=$HOME/cmus/bin:$PATH
+
+function  vim_shuf() {
+vim <(shuf "$1");
+}
+
+function transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile;
+}
