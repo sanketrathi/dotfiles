@@ -62,7 +62,7 @@ set pastetoggle=<F2>
 nmap <f3> :set number! number?<cr>
                   " toggle showing line numbers
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=trail:.,extends:#,nbsp:.
                   " highlight whitespace
 nmap <silent> <Leader>= :nohlsearch <CR>
                   " unhighlight search
@@ -203,3 +203,4 @@ autocmd CompleteDone * pclose
 autocmd Filetype python :nnoremap <Leader>c I#<Space><Esc>
 autocmd Filetype python highlight Excess ctermbg=red guibg=red
 autocmd Filetype python match Excess /\%119v.*/
+autocmd Filetype python set listchars=tab:>.,trail:.,extends:#,nbsp:.
