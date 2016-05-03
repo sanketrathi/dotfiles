@@ -24,6 +24,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'leafgarland/typescript-vim'
+
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -128,6 +129,7 @@ au BufRead,BufNewFile *.go set filetype=go
 "Markdown
 au BufRead,BufNewfile *.md set filetype=markdown
 let g:instant_markdown_autostart = 0
+let g:vim_markdown_folding_disabled = 1
 
 " Javascript
 "autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
