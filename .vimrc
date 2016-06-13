@@ -22,8 +22,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'leafgarland/typescript-vim'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim'
 
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
@@ -81,8 +82,7 @@ nnoremap gl gt
 nnoremap gh gT
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
-iabbrev pdb from IPython.frontend.terminal.embed import InteractiveShellEmbed
-\<CR>InteractiveShellEmbed()()
+nnoremap <C-]> <C-w><C-]><C-w>T
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -119,6 +119,15 @@ set wildmode=list:longest,full
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
+
+" Python
+autocmd Filetype python :nnoremap <Leader>c I#<Space><Esc>
+autocmd Filetype python highlight Excess ctermbg=red guibg=red
+autocmd Filetype python match Excess /\%119v.*/
+autocmd Filetype python set listchars=tab:>.,trail:.,extends:#,nbsp:.
+let g:jedi#use_splits_not_buffers = "left"
+let g:jedi#show_call_signatures = "1"
+let g:pymode_rope = 0
 
 " Clisp
 autocmd Filetype lisp setlocal ts=2 sts=2 sw=2
@@ -194,15 +203,15 @@ map tn :tabnext<Space>
 map tm :tabm<Space>
 map <C-n> :NERDTreeToggle<CR>
 
+" Zeavim modified shortcuts
+nmap gzz <Plug>Zeavim
+vmap gzz <Plug>ZVVisSelection
+nmap gz <Plug>ZVMotion
+nmap gZ <Plug>ZVKeyDocset
+
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 autocmd CompleteDone * pclose
-
-" Python
-autocmd Filetype python :nnoremap <Leader>c I#<Space><Esc>
-autocmd Filetype python highlight Excess ctermbg=red guibg=red
-autocmd Filetype python match Excess /\%119v.*/
-autocmd Filetype python set listchars=tab:>.,trail:.,extends:#,nbsp:.
