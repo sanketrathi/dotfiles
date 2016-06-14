@@ -206,3 +206,7 @@ bar {
                 separator          $yellow
         }
 }
+
+# Startup
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/floyd.png
+exec --no-startup-id setxkbmap -option caps:escape
