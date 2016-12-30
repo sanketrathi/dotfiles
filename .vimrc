@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
@@ -119,6 +120,8 @@ set wildmode=list:longest,full
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
+
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " Python
 autocmd Filetype python :nnoremap <Leader>c I#<Space><Esc>
